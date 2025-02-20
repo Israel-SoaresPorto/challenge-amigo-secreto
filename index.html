@@ -21,9 +21,11 @@
     <main class="main-content">
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <form class="input-wrapper" id="friend-form" aria-labelledby="formAmigos" role="form">
-                <input type="text" id="friend-input" class="input-name" placeholder="Digite um nome" required>
-                <button type="submit" id="add-friend-btn" class="button-add">Adicionar</button>
+            <form class="friend-form" id="add-friend-form" aria-labelledby="formAmigos" role="form" novalidate>
+                <div class="form-control">
+                    <input type="text" id="friend-input" class="input-name" placeholder="Digite um nome" required minlength="3">
+                    <button type="submit" id="add-friend-btn" class="button-add">Adicionar</button>
+                </div>
                 <p id="error-message" class="error-message" aria-live="assertive"></p>
             </form>
 
