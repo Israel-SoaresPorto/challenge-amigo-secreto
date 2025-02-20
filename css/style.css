@@ -6,6 +6,7 @@
   --color-button-hover: #e55720;
   --color-text: #444444;
   --color-white: #ffffff;
+  --color-green: #05df05;
 }
 
 /* Estilos gerais */
@@ -151,8 +152,27 @@ ul {
   list-style-type: none;
   color: var(--color-text);
   font-family: "Inter", sans-serif;
-  font-size: 18px;
-  margin: 20px 0;
+  font-size: 1.125em;
+  margin: 1.25rem 0;
+}
+
+.name-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.name-list li {
+    background-color: var(--color-tertiary);
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+}
+
+.name-list li.sorted {
+  background-color: var(--color-green);
+  color: var(--color-white);
 }
 
 .result-list {

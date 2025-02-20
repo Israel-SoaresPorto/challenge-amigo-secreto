@@ -8,6 +8,21 @@ const friendInput = document.querySelector("#friend-input");
 const errorMessage = document.querySelector("#error-message");
 
 const friends = [];
+let friendCount = 0;
+
+function renderFriendsList(friends) {
+  friendList.innerHTML = "";
+
+  friends.forEach((friend) => {
+    if (friend.sorted) {
+      friendList.innerHTML += `<li class="sorted">${friend.name}</li>`;
+    } else {
+      friendList.innerHTML += `<li>${friend.name}</li>`;
+    }
+  });
+
+  console.log(friends);
+}
 
 addFriendForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -31,8 +46,34 @@ addFriendForm.addEventListener("submit", (e) => {
     return;
   }
 
-  friends.push(friendInput.value);
-  friendList.innerHTML += `<li>${friendInput.value}</li>`;
+  friendCount++;
+  friends.push({ id: friendCount, name: friendInput.value, sorted: false });
+  renderFriendsList(friends);
   addFriendForm.reset();
   errorMessage.style.display = "none";
+});
+
+drawFriendButton.addEventListener("click", () => {
+  if (friends.length === 0) {
+    return;
+  }
+
+  if (friends.every((friend) => friend.sorted)) {
+    friendDraw.textContent = "Todos os amigos já foram sorteados";
+    return;
+  }
+
+  const notSortedFriends = friends.filter((friend) => !friend.sorted);
+  const randomIndex = Math.floor(Math.random() * notSortedFriends.length);
+  const randomFriend = notSortedFriends[randomIndex];
+
+  friendDraw.textContent = `O amigo sorteado foi: ${randomFriend.name}`;
+
+  const sortedIndex = friends.findIndex(
+    (friend) => friend.id === randomFriend.id
+  );
+
+  friends[sortedIndex].sorted = true;
+
+  renderFriendsList(friends);
 });
