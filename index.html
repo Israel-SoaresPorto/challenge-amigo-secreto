@@ -21,16 +21,17 @@
     <main class="main-content">
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button id="adicionarAmigoButton" class="button-add">Adicionar</button>
-            </div>
+            <form class="input-wrapper" id="friend-form" aria-labelledby="formAmigos" role="form">
+                <input type="text" id="friend-input" class="input-name" placeholder="Digite um nome" required>
+                <button type="submit" id="add-friend-btn" class="button-add">Adicionar</button>
+                <p id="error-message" class="error-message" aria-live="assertive"></p>
+            </form>
 
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+            <ul id="friends-list" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+            <ul id="result-draw" class="result-list" aria-live="polite"></ul>
 
             <div class="button-container">
-                <button id="sortearAmigoButton" class="button-draw" aria-label="Sortear amigo secreto">
+                <button id="draw-friend-btn" class="button-draw" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
                     Sortear amigo
                 </button>
