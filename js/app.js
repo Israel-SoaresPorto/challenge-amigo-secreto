@@ -30,8 +30,23 @@ function clearFriends() {
   friends = [];
 }
 
+function checkIsFriendExists(name) {
+  return friends.some((friend) => friend.name === name);
+}
+
 addFriendForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (checkIsFriendExists(friendInput.value)) {
+    errorMessage.style.display = "block";
+    errorMessage.textContent = "Esse amigo já foi adicionado";
+
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 3000);
+    
+    return;
+  }
 
   if (!friendInput.checkValidity()) {
     errorMessage.style.display = "block";
@@ -39,8 +54,6 @@ addFriendForm.addEventListener("submit", (e) => {
 
     if (validityState.valueMissing) {
       errorMessage.textContent = "O nome do amigo não pode estar vazio";
-    } else if (friends.includes(friendInput.value)) {
-      errorMessage.textContent = "Esse amigo já foi adicionado";
     } else if (validityState.tooShort) {
       errorMessage.textContent = "Digite um nome com mais de 3 caracteres";
     }
@@ -87,5 +100,3 @@ clearFriendsButton.addEventListener("click", () => {
   clearFriends();
   renderFriendsList(friends);
 });
-
-
