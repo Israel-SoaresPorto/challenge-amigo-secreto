@@ -9,7 +9,6 @@ const friendInput = document.querySelector("#friend-input");
 const errorMessage = document.querySelector("#error-message");
 
 let friends = [];
-let friendCount = 0;
 
 function renderFriendsList(friends) {
   friendList.innerHTML = "";
@@ -21,8 +20,6 @@ function renderFriendsList(friends) {
       friendList.innerHTML += `<li>${friend.name}</li>`;
     }
   });
-
-  console.log(friends);
 }
 
 function addFriend(value) {
