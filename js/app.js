@@ -44,7 +44,7 @@ addFriendForm.addEventListener("submit", (e) => {
     setTimeout(() => {
       errorMessage.style.display = "none";
     }, 3000);
-    
+
     return;
   }
 
@@ -99,4 +99,8 @@ drawFriendButton.addEventListener("click", () => {
 clearFriendsButton.addEventListener("click", () => {
   clearFriends();
   renderFriendsList(friends);
+
+  if (friendDraw.innerHTML) {
+    friendDraw.innerHTML = "";
+  }
 });
