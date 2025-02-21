@@ -23,8 +23,10 @@
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
             <form class="friend-form" id="add-friend-form" aria-labelledby="formAmigos" role="form" novalidate>
                 <div class="form-control">
-                    <input type="text" id="friend-input" class="input-name" placeholder="Digite um nome" required minlength="3">
-                    <button type="submit" id="add-friend-btn" class="button-add">Adicionar</button>
+                    <input type="text" id="friend-input" class="input-name" placeholder="Digite um nome" required
+                        minlength="3" aria-label="Campo para digitar o nome do amigo">
+                    <button type="submit" id="add-friend-btn" class="button-add"
+                        aria-label="Botão para adicionar amigo">Adicionar</button>
                 </div>
                 <p id="error-message" class="error-message" aria-live="assertive"></p>
             </form>
@@ -32,12 +34,13 @@
             <ul id="friends-list" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
             <ul id="result-draw" class="result-list" aria-live="polite"></ul>
 
-            <div class="button-container">
+            <div class="button-container" aria-label="Botões para sortear e limpar amigos">
                 <button id="draw-friend-btn" class="button-draw" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
                     Sortear amigo
                 </button>
                 <button id="clear-friends-btn" class="button-clear" aria-label="Limpar todos os amigos">
+                    <img src="assets/trash-can.png" alt="Ícone para limpar">
                     Limpar amigos
                 </button>
             </div>
