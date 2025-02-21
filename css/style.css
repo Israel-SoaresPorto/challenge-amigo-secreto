@@ -105,6 +105,13 @@ body {
   font-size: 1em;
 }
 
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 /* Estilos de entrada de texto */
 .input-title {
   flex: 1;
@@ -184,7 +191,7 @@ ul {
 }
 
 /* Botão de sortear título */
-.button-draw {
+.button-draw, .button-clear {
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem;
@@ -200,6 +207,11 @@ ul {
 
 .button-draw:hover {
   background-color: var(--color-button-hover);
+}
+
+.button-clear {
+  background-color: var(--color-tertiary);
+  color: var(--color-text);
 }
 
 @media screen and (min-width: 768px) {

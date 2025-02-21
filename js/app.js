@@ -2,12 +2,13 @@
 
 const addFriendForm = document.querySelector("#add-friend-form");
 const drawFriendButton = document.querySelector("#draw-friend-btn");
+const clearFriendsButton = document.querySelector("#clear-friends-btn");
 const friendList = document.querySelector("#friends-list");
 const friendDraw = document.querySelector("#result-draw");
 const friendInput = document.querySelector("#friend-input");
 const errorMessage = document.querySelector("#error-message");
 
-const friends = [];
+let friends = [];
 let friendCount = 0;
 
 function renderFriendsList(friends) {
@@ -22,6 +23,14 @@ function renderFriendsList(friends) {
   });
 
   console.log(friends);
+}
+
+function addFriend(value) {
+  friends.push({ id: friends.length + 1, name: value, sorted: false });
+}
+
+function clearFriends() {
+  friends = [];
 }
 
 addFriendForm.addEventListener("submit", (e) => {
@@ -46,8 +55,7 @@ addFriendForm.addEventListener("submit", (e) => {
     return;
   }
 
-  friendCount++;
-  friends.push({ id: friendCount, name: friendInput.value, sorted: false });
+  addFriend(friendInput.value);
   renderFriendsList(friends);
   addFriendForm.reset();
   errorMessage.style.display = "none";
@@ -77,3 +85,10 @@ drawFriendButton.addEventListener("click", () => {
 
   renderFriendsList(friends);
 });
+
+clearFriendsButton.addEventListener("click", () => {
+  clearFriends();
+  renderFriendsList(friends);
+});
+
+
